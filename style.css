@@ -1,0 +1,399 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+  background: #f3f5fb;
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 2em 1em;
+}
+
+.card {
+  width: 340px;
+  height: 440px;
+  margin: 1em;
+  perspective: 1500px;
+}
+
+.card .content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .8s cubic-bezier(.75, 0, .85, 1);
+}
+
+.more {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.more:checked ~ .content {
+  transform: rotateY(180deg);
+}
+
+.more:focus-visible ~ .content .button:not(.buy) {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, .35);
+}
+
+.front, .back {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(20, 30, 60, .18);
+}
+
+.front .inner, .back .inner {
+  height: 100%;
+  display: grid;
+  padding: 1.6em;
+  transform: translateZ(80px) scale(.94);
+}
+
+.front {
+  color: #fff;
+}
+
+.front .watermark {
+  position: absolute;
+  left: 50%;
+  top: 46px;
+  width: 150px;
+  height: 150px;
+  margin-left: -75px;
+  fill: none;
+  stroke: rgba(255, 255, 255, .9);
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.front .inner {
+  grid-template-rows: 5fr 1fr 1fr 1fr 2fr 1fr;
+  justify-items: center;
+  text-align: center;
+}
+
+.front .tag {
+  grid-row: 2;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: .72em;
+  font-weight: 600;
+  opacity: .9;
+}
+
+.front h2 {
+  grid-row: 3;
+  margin: 0;
+  font-size: 1.7em;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(0, 0, 0, .15);
+}
+
+.front .rating {
+  grid-row: 4;
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.front .rating .star {
+  width: 16px;
+  height: 16px;
+  fill: #fff;
+  stroke: none;
+}
+
+.front .rating .star.off {
+  opacity: .35;
+}
+
+.back {
+  transform: rotateY(180deg);
+  background: #fff;
+  border: 2px solid #eceff6;
+}
+
+.back .inner {
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: .6em;
+  grid-row-gap: .8em;
+  align-content: start;
+  justify-items: center;
+}
+
+.back .location, .back .price {
+  grid-row: 1;
+  font-weight: 700;
+  font-size: .86em;
+}
+
+.back .location {
+  grid-column: 1 / 3;
+  justify-self: left;
+}
+
+.back .price {
+  grid-column: 3 / -1;
+  justify-self: right;
+  font-size: 1.4em;
+}
+
+.back .info {
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  gap: .35em;
+  position: relative;
+}
+
+.back .info:not(:first-of-type)::before {
+  content: '';
+  position: absolute;
+  left: -.45em;
+  height: 22px;
+  width: 1px;
+  background: #d8dce6;
+}
+
+.back .info > span {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.back .info .icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.back .info .icon .svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.back .info .icon span {
+  font-size: .68em;
+  font-weight: 600;
+  margin-top: 1px;
+}
+
+.back .description {
+  grid-row: 3;
+  grid-column: 1 / -1;
+  justify-self: stretch;
+  align-self: start;
+  margin-top: .6em;
+  font-size: .86em;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow: auto;
+  padding-right: 8px;
+}
+
+.back .description p {
+  margin: 0 0 .6em;
+}
+
+.back .description ul {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.back .button.buy {
+  grid-row: 4;
+  grid-column: 1 / 4;
+  justify-self: stretch;
+}
+
+.back .button.return {
+  grid-row: 4;
+  grid-column: 4;
+  padding: 0;
+  justify-self: stretch;
+}
+
+.button {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: .8em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3em;
+  min-width: 3em;
+  padding: 0 1.6em;
+  text-decoration: none;
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  border-radius: 6px;
+  backface-visibility: hidden;
+  transition: .3s ease-in-out;
+}
+
+.button .svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.button:hover {
+  background: #fff;
+  color: #12263a;
+  box-shadow: 0 0 40px rgba(0, 0, 0, .25);
+}
+
+.button.buy:hover {
+  filter: brightness(1.1);
+  box-shadow: none;
+  color: #fff;
+}
+
+.front .button {
+  grid-row: 5;
+  align-self: center;
+}
+
+.card[data-theme="band"] .front {
+  background: linear-gradient(40deg, #ff7a59, #f43f8e);
+}
+
+.card[data-theme="band"] .info, .card[data-theme="band"] .description, .card[data-theme="band"] .location, .card[data-theme="band"] .price {
+  color: #d6336c;
+}
+
+.card[data-theme="band"] .info i, .card[data-theme="band"] .info .svg {
+  stroke: #d6336c;
+}
+
+.card[data-theme="band"] .button.buy {
+  background: #d6336c;
+  border-color: #d6336c;
+  color: #fff;
+}
+
+.card[data-theme="band"] .button.return {
+  color: #d6336c;
+  border-color: #d6336c;
+}
+
+.card[data-theme="band"] .button.return:hover {
+  background: #d6336c;
+  color: #fff;
+}
+
+.card[data-theme="band"] .description {
+  scrollbar-color: #d6336c #f1f1f1;
+}
+
+.card[data-theme="watch"] .front {
+  background: linear-gradient(40deg, #2563eb, #7c3aed);
+}
+
+.card[data-theme="watch"] .info, .card[data-theme="watch"] .description, .card[data-theme="watch"] .location, .card[data-theme="watch"] .price {
+  color: #4f46e5;
+}
+
+.card[data-theme="watch"] .info i, .card[data-theme="watch"] .info .svg {
+  stroke: #4f46e5;
+}
+
+.card[data-theme="watch"] .button.buy {
+  background: #4f46e5;
+  border-color: #4f46e5;
+  color: #fff;
+}
+
+.card[data-theme="watch"] .button.return {
+  color: #4f46e5;
+  border-color: #4f46e5;
+}
+
+.card[data-theme="watch"] .button.return:hover {
+  background: #4f46e5;
+  color: #fff;
+}
+
+.card[data-theme="watch"] .description {
+  scrollbar-color: #4f46e5 #f1f1f1;
+}
+
+.card[data-theme="buds"] .front {
+  background: linear-gradient(40deg, #0ea5a4, #22c55e);
+}
+
+.card[data-theme="buds"] .info, .card[data-theme="buds"] .description, .card[data-theme="buds"] .location, .card[data-theme="buds"] .price {
+  color: #0f8a5f;
+}
+
+.card[data-theme="buds"] .info i, .card[data-theme="buds"] .info .svg {
+  stroke: #0f8a5f;
+}
+
+.card[data-theme="buds"] .button.buy {
+  background: #0f8a5f;
+  border-color: #0f8a5f;
+  color: #fff;
+}
+
+.card[data-theme="buds"] .button.return {
+  color: #0f8a5f;
+  border-color: #0f8a5f;
+}
+
+.card[data-theme="buds"] .button.return:hover {
+  background: #0f8a5f;
+  color: #fff;
+}
+
+.card[data-theme="buds"] .description {
+  scrollbar-color: #0f8a5f #f1f1f1;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4c9d6;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card .content, .button {
+    transition-duration: .01s;
+  }
+
+}

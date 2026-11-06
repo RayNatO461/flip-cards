@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.scss">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RayFit flip cards</title>
+  </head>
+  <body>
+<div class="wrapper">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 018-3 4.6 4.6 0 018 3c0 5.8-8 11-8 11z"/><path d="M5 12h4l1.5-3 3 6 1.5-3h4" class="cut"/></symbol>
+  <symbol id="i-watch" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="3.5"/><path d="M9 6l.8-4h4.4L15 6M9 18l.8 4h4.4l.8-4M12 9.5V12l2 1.5"/></symbol>
+  <symbol id="i-phones" viewBox="0 0 24 24"><path d="M4 15v-3a8 8 0 0116 0v3"/><rect x="3" y="14" width="4.5" height="7" rx="2"/><rect x="16.5" y="14" width="4.5" height="7" rx="2"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24"><rect x="2" y="7" width="17" height="10" rx="2.5"/><path d="M22 10.5v3M6 10.5v3M10 10.5v3"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s6.5 7 6.5 11.5a6.5 6.5 0 01-13 0C5.5 10 12 3 12 3z"/></symbol>
+  <symbol id="i-feather" viewBox="0 0 24 24"><path d="M20 4c-8 0-13 4-13 11l-3 5M20 4c0 8-4 12-11 12M10 14h6"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></symbol>
+</svg>
+
+    <div class="card" data-theme="band">
+        <input type="checkbox" id="band" class="more" aria-label="Show details of RayFit Band">
+        <div class="content">
+            <div class="front">
+                <svg class="svg watermark" aria-hidden="true"><use href="#i-heart"/></svg>
+                <div class="inner">
+                    <span class="tag">Smart band</span>
+                    <h2>RayFit Band</h2>
+                    <div class="rating" aria-label="4 out of 5 stars"><svg class="svg star" aria-hidden="true"><use href="#i-star"/></svg><svg class="svg star" aria-hidden="true"><use href="#i-star"/></svg><svg class="svg star" aria-hidden="true"><use href="#i-star"/></svg><svg class="svg star" aria-hidden="true"><use href="#i-star"/></svg><svg class="svg star off" aria-hidden="true"><use href="#i-star"/></svg></div>
+                    <label for="band" class="button">Details</label>
+                </div>
+            </div>
+            <div class="back">
+                <div class="inner">
+                    <div class="info">
+                        <span>14</span>
+                        <div class="icon">
+                            <svg class="svg " aria-hidden="true"><use href="#i-battery"/></svg>
+                            <span>days</span>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <span>5</span>
+                        <div class="icon">
+                            <svg class="svg " aria-hidden="true"><use href="#i-drop"/></svg>
+                            <span>ATM</span>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <span>24</span>
+                        <div class="icon">
+                            <svg class="svg " aria-hidden="true"><use href="#i-feather"/></svg>
+                            <span>grams</span>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <span>2</span>
+                        <div class="icon">
+                            <svg class="svg " aria-hidden="true"><use href="#i-shield"/></svg>
+                            <span>years</span>
+                        </div>
+                    </div>
+                    <div class="description"><p>Track your heart rate, sleep and daily steps, and see everything in one clear screen.</p></div>
+                    <div class="location">Everyday wearable</div>
+                    <div class="price">49€</div>
+                    <a href="#" class="button buy">Buy now</a>
+                    <label for="band" class="button return" aria-label="Back"><svg class="svg " aria-hidden="true"><use href="#i-back"/></svg></label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" data-theme="watch">
+        <input type="checkbox" id="watch" class="more" aria-label="Show details of RayFit Watch">
+        <div class="content">
+            <div class="front">
+                <svg class="svg watermark" aria-hidden="true"><use href="#i-watch"/></svg>
+                <div class="inner">
+                    <span class="tag">Sports watch</span>
+                    <h2>RayFit Watch</h2>
+                    <div class="rating" aria-label="5 out of 5 stars"><svg class="svg star" aria-hidden="true"><use href="#i-star"/></svg><svg class="svg star" aria-hidden="true"><use href="#i-star"/></svg><svg class="svg star" aria-hidden="true"><use href="#i-star"/></svg><svg class="svg star" aria-hidden="true"><use href="#i-star"/></svg><svg class="svg star" aria-hidden="true"><use href="#i-star"/></svg></div>
+                    <label for="watch" class="button">Details</label>
+                </div>
+            </div>
+            <div class="back">
+                <div class="inner">
+                    <div class="info">
+                        <span>7</span>
+                        <div class="icon">
+                            <svg class="svg " aria-hidden="true"><use href="#i-battery"/></svg>
+                            <span>days</span>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <span>10</span>
+                        <div class="icon">
+                            <svg class="svg " aria-hidden="true"><use href="#i-drop"/></svg>
+                            <span>ATM</span>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <span>42</span>
+                        <div class="icon">
+                            <svg class="svg " aria-hidden="true"><use href="#i-feather"/></svg>
+                            <span>grams</span>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <span>2</span>
+                        <div class="icon">
+                            <svg class="svg " aria-hidden="true"><use href="#i-shield"/></svg>
+                            <span>years</span>
+                        </div>
+                    </div>
+                    <div class="description"><p>Built-in GPS and 40 sport modes for runners and gym lovers.</p><ul><li>Built-in GPS</li><li>Heart rate and oxygen sensor</li><li>AMOLED always-on screen</li></ul></div>
+                    <div class="location">Sport wearable</div>
+                    <div class="price">129€</div>
+                    <a href="#" class="button buy">Buy now</a>
+                    <label for="watch" class="button return" aria-label="Back"><svg class="svg " aria-hidden="true"><use href="#i-back"/></svg></label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" data-theme="buds">
+        <input type="checkbox" id="buds" class="more" aria-label="Show details of RayFit Buds">
+        <div class="content">
+            <div class="front">
+                <svg class="svg watermark" aria-hidden="true"><use href="#i-phones"/></svg>
+                <div class="inner">
+                    <span class="tag">Wireless earbuds</span>
+                    <h2>RayFit Buds</h2>
+                    <div class="rating" aria-label="4 out of 5 stars"><svg class="svg star" aria-hidden="true"><use href="#i-star"/></svg><svg class="svg star" aria-hidden="true"><use href="#i-star"/></svg><svg class="svg star" aria-hidden="true"><use href="#i-star"/></svg><svg class="svg star" aria-hidden="true"><use href="#i-star"/></svg><svg class="svg star off" aria-hidden="true"><use href="#i-star"/></svg></div>
+                    <label for="buds" class="button">Details</label>
+                </div>
+            </div>
+            <div class="back">
+                <div class="inner">
+                    <div class="info">
+                        <span>30</span>
+                        <div class="icon">
+                            <svg class="svg " aria-hidden="true"><use href="#i-battery"/></svg>
+                            <span>hours</span>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <span>4</span>
+                        <div class="icon">
+                            <svg class="svg " aria-hidden="true"><use href="#i-drop"/></svg>
+                            <span>IPX</span>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <span>5</span>
+                        <div class="icon">
+                            <svg class="svg " aria-hidden="true"><use href="#i-feather"/></svg>
+                            <span>grams</span>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <span>1</span>
+                        <div class="icon">
+                            <svg class="svg " aria-hidden="true"><use href="#i-shield"/></svg>
+                            <span>year</span>
+                        </div>
+                    </div>
+                    <div class="description"><p>Light, sweat-proof earbuds with strong bass, made for training sessions that never stop.</p></div>
+                    <div class="location">Audio</div>
+                    <div class="price">79€</div>
+                    <a href="#" class="button buy">Buy now</a>
+                    <label for="buds" class="button return" aria-label="Back"><svg class="svg " aria-hidden="true"><use href="#i-back"/></svg></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="./script.js"></script>
+  </body>
+</html>
